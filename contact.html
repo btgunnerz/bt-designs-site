@@ -77,7 +77,33 @@
     }
 </style>
 </head>
-<body>
+    <body>
 
-<header>
-    <img src="images/bt-designs-logo.png" alt="BT Designs Inc. Logo">
+    <header>
+       <img src="images/bt-designs-logo.png" alt="BT Designs Inc. Logo">
+    </header>
+
+    <div class="container">
+        <form action="https://formspree.io/f/xljewrbb" methond="POST" enctype="multipart/form-data">
+            <label>Your Name</label>
+            <input type="text" name="name" Required>
+
+            <label>Email Address</label>
+            <input type="email" name="email" Required>
+
+            <label>Phone Number</label>
+            <input type="text" name="phone">
+
+            <label>Project Description *</label>
+            <textarea name="message" placeholder="Describe your sketch, layout, or CAD needs..." required></textarea>
+
+            <label>Upload Sketch / Images *</label>
+            <input type="file" name="file" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+        <footer>BT DESIGNS INC. | ARCHITECTURAL DESIGNS | SPACE PLANNING | CAD DRAFTING | 3D MODELLING</footer>
+    </body>
+</html>
