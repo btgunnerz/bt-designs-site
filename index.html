@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BT Designs Inc.</title>
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="style.css">
+
+<!-- Optional Minified Stylesheet (production) -->
+<!-- <link rel="stylesheet" href="style.min.css"> -->
+
+<!-- JavaScript -->
+<script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="topRevealNav" class="reveal-nav">
+  <div class="nav-logo">
+    <img src="images/logo.png" alt="BT Designs Logo">
+  </div>
+
+  <div class="nav-content">
+    <a href="#hero">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <button id="darkToggle">Dark Mode</button>
+  <div class="hamburger" id="hamburger">☰</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero">Home</a>
+  <a href="#services">Services</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero fade-in" id="hero">
+  <h1>Architectural Visualization & CAD Drafting</h1>
+  <p>Professional drafting, rendering, and design services for commercial, residential, and industrial projects.</p>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services fade-in" id="services">
+  <h2>Services</h2>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>3D Visualization</h3>
+      <p>Photorealistic interior and exterior renders for commercial and residential projects.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>CAD Drafting</h3>
+      <p>Accurate technical drawings for architectural, mechanical, and industrial applications.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Space Planning</h3>
+      <p>Functional layout design for offices, retail, and residential environments.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Concept Design</h3>
+      <p>Early‑stage visualization and ideation for new developments and renovations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PORTFOLIO ===== -->
+<section class="portfolio fade-in" id="portfolio">
+  <h2>Portfolio</h2>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="interiors">Interiors</button>
+    <button class="filter-btn" data-filter="commercial">Commercial</button>
+    <button class="filter-btn" data-filter="cad">CAD</button>
+  </div>
+
+  <div class="grid" id="portfolioGrid">
+
+    <!-- Card 1 -->
+    <div class="card" data-category="commercial">
+      <img src="images/projects-1.png">
+      <div class="info">
+        <h3>Commercial Office Development</h3>
+        <p>Daytime exterior visualization of a modern office complex featuring clean geometry, reflective glazing, and balanced natural lighting.</p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" data-category="interiors">
+      <img src="images/projects-2.png">
+      <div class="info">
+        <h3>Retail Interior Concept — Alexander Wang</h3>
+        <p>A modern retail environment featuring geometric display modules, metallic textures, and a monochrome palette.</p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card fade-card" data-category="interiors">
+      <div class="fade-wrapper">
+        <img src="images/projects-3.png" class="fade-img active">
+        <img src="images/projects-3a.png" class="fade-img">
+      </div>
+      <div class="info">
+        <h3>Executive Conference Room — Render & Realization</h3>
+        <p>A comparative showcase featuring the digital rendering and the completed conference room.</p>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card fade-card" data-category="commercial">
+      <div class="fade-wrapper">
+        <img src="images/projects-4.png" class="fade-img active">
+        <img src="images/projects-4a.png" class="fade-img">
+      </div>
+      <div class="info">
+        <h3>Automotive Service Plaza — Dual Visualization</h3>
+        <p>A comparative presentation of a multi‑tenant automotive plaza concept. The first image showcases the rendered design, while the second depicts the completed development.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact fade-in" id="contact">
+  <h2>Contact</h2>
+
+  <form action="https://formspree.io/f/xljewrbb" method="POST" enctype="multipart/form-data">
+    <label>Your Name *</label>
+    <input type="text" name="name" required>
+
+    <label>Email Address *</label>
+    <input type="email" name="email" required>
+
+    <label>Project Description *</label>
+    <textarea name="message" required></textarea>
+
+    <label>Upload Images / PDFs</label>
+    <div class="dropzone" id="dropzone">
+      <p>Drag & Drop files here<br>or click to browse</p>
+      <input type="file" id="fileInput" name="files" accept=".jpg,.jpeg,.png,.pdf" multiple>
+    </div>
+
+    <button type="submit">Submit Project</button>
+  </form>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="left">
+    BT DESIGNS INC.<br>
+    Architectural Visualization • CAD Drafting • Space Planning
+  </div>
+
+  <div class="right">
+    <a href="#hero">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>

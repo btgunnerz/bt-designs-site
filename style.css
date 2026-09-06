@@ -1,0 +1,190 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: #e6e6e6;
+  font-family: "Century Gothic","Segoe UI",sans-serif;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+body.dark { background:#0b0c0f; color:#f0f0f0; }
+.dark .card { background:rgba(255,255,255,0.08); }
+.dark .dropzone { border-color:#ffd700; }
+.dark footer { background:rgba(255,255,255,0.05); }
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+.reveal-nav {
+  position:fixed; top:-90px; left:0; width:100%; height:90px;
+  background:linear-gradient(90deg,#0d0f12,#1a1c20,#2a2d33);
+  box-shadow:0 0 25px rgba(255,255,255,0.15);
+  border-bottom:2px solid #d4af37;
+  backdrop-filter:blur(6px);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 40px; transition:top 0.35s ease; z-index:9999;
+}
+.nav-logo img { height:55px; filter:drop-shadow(0 0 4px rgba(255,255,255,0.3)); }
+.nav-content { display:flex; gap:25px; }
+.nav-content a {
+  color:#e6e6e6; text-decoration:none;
+  font-family:"Berlin Sans FB",sans-serif; font-size:1.1rem;
+}
+.nav-content a.active { color:#d4af37; }
+
+#darkToggle {
+  background:none; border:2px solid #d4af37; color:#d4af37;
+  padding:8px 14px; border-radius:6px; cursor:pointer;
+  font-size:0.9rem; transition:0.3s ease;
+}
+#darkToggle:hover { background:#d4af37; color:#0d0f12; }
+
+.hamburger { display:none; font-size:2rem; cursor:pointer; color:#e6e6e6; }
+
+.mobile-menu {
+  display:none; flex-direction:column; background:rgba(15,17,20,0.95);
+  position:fixed; top:90px; right:0; width:70%; padding:20px;
+  border-left:2px solid #d4af37; z-index:9998;
+}
+.mobile-menu a {
+  padding:15px 0; color:#e6e6e6; text-decoration:none; font-size:1.2rem;
+}
+
+@media(max-width:900px) {
+  .nav-content { display:none; }
+  .hamburger { display:block; }
+}
+
+/* =========================================================
+   SECTION BACKGROUNDS
+   ========================================================= */
+.hero {
+  background:url('images/top image.png') center/cover fixed;
+  background-color:rgba(13,15,18,0.75); background-blend-mode:overlay;
+  padding:140px 60px 100px; max-width:900px;
+}
+.services {
+  background:url('images/plans-1.png') center/cover fixed;
+  background-color:rgba(13,15,18,0.75); background-blend-mode:overlay;
+  padding:60px;
+}
+.portfolio {
+  background:url('images/background-1.png') center/cover fixed;
+  background-color:rgba(13,15,18,0.75); background-blend-mode:overlay;
+  padding:60px;
+}
+.contact {
+  background:url('images/room-1.png') center/cover fixed;
+  background-color:rgba(13,15,18,0.75); background-blend-mode:overlay;
+  padding:60px; max-width:700px; margin:auto;
+}
+footer {
+  background:rgba(11,12,15,0.85); margin-top:60px; padding:40px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  display:flex; justify-content:space-between; font-size:0.9rem;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero h1 {
+  font-size:3rem; font-family:"Berlin Sans FB",sans-serif; margin-bottom:20px;
+}
+.hero p { font-size:1.2rem; line-height:1.6; }
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+.services h2 {
+  font-size:2rem; font-family:"Berlin Sans FB",sans-serif; margin-bottom:30px;
+}
+.services-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+.service-card {
+  background:rgba(20,22,26,0.85); border:1px solid rgba(255,255,255,0.08);
+  padding:25px; border-radius:10px; transition:0.3s ease;
+}
+.service-card:hover { transform:translateY(-5px); }
+
+/* =========================================================
+   PORTFOLIO
+   ========================================================= */
+.filter-bar { margin-bottom:25px; display:flex; gap:15px; }
+.filter-btn {
+  padding:10px 18px; border:2px solid #d4af37; background:none;
+  color:#d4af37; border-radius:6px; cursor:pointer; transition:0.3s ease;
+}
+.filter-btn.active, .filter-btn:hover {
+  background:#d4af37; color:#0d0f12;
+}
+
+.grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:25px;
+}
+.card {
+  background:rgba(20,22,26,0.85); border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px; overflow:hidden; transition:transform .2s ease;
+}
+.card:hover { transform:scale(1.02); }
+.card img { width:100%; height:220px; object-fit:cover; }
+.card .info { padding:20px; }
+
+/* =========================================================
+   FADE IMAGE CARDS
+   ========================================================= */
+.fade-wrapper {
+  position:relative; width:100%; height:220px; overflow:hidden;
+}
+.fade-img {
+  position:absolute; top:0; left:0; width:100%; height:220px;
+  object-fit:cover; opacity:0; transition:opacity 1.5s ease-in-out;
+}
+.fade-img.active { opacity:1; }
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+.dropzone {
+  margin-top:15px; padding:40px; border:2px dashed #d4af37;
+  border-radius:10px; background:rgba(15,17,20,0.65);
+  backdrop-filter:blur(6px); text-align:center; cursor:pointer;
+  transition:0.3s ease;
+}
+.dropzone:hover {
+  background:rgba(20,22,26,0.85);
+  box-shadow:0 0 15px rgba(212,175,55,0.35);
+}
+.dropzone.dragover {
+  border-color:#ffd700;
+  box-shadow:0 0 20px rgba(255,215,0,0.45);
+}
+.dropzone input[type="file"] { display:none; }
+
+form input, form textarea {
+  width:100%; padding:12px; margin-top:5px; border-radius:6px;
+  border:1px solid rgba(255,255,255,0.12);
+  background:rgba(15,17,20,0.85); color:#e6e6e6; font-size:1rem;
+}
+form textarea { height:140px; }
+
+button {
+  margin-top:20px; padding:14px 25px; background:#0077ff;
+  border:none; border-radius:6px; color:white; font-size:1.1rem;
+  cursor:pointer; width:100%;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer .right a {
+  display:block; color:#cfcfcf; text-decoration:none; margin-bottom:8px;
+}
