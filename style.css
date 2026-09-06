@@ -40,8 +40,8 @@ body.dark { background:#0b0c0f; color:#f0f0f0; }
 
 #darkToggle {
   background:none; border:2px solid #d4af37; color:#d4af37;
-  padding:8px 14px; border-radius:6px; cursor:pointer;
-  font-size:0.9rem; transition:0.3s ease;
+  width:auto; margin:0; padding:6px 10px; border-radius:6px; cursor:pointer;
+  font-size:0.8rem; transition:0.3s ease;
 }
 #darkToggle:hover { background:#d4af37; color:#0d0f12; }
 
