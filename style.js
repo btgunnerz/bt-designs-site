@@ -118,13 +118,14 @@ const lightboxImage = document.getElementById("lightboxImage");
 const lightboxClose = document.getElementById("lightboxClose");
 const lightboxPrevious = document.getElementById("lightboxPrevious");
 const lightboxNext = document.getElementById("lightboxNext");
-const portfolioImages = Array.from(portfolioGrid.querySelectorAll(".card img"));
+const portfolioImages = portfolioGrid.querySelectorAll(".card img");
 let previouslyFocusedElement;
 let currentImageIndex = 0;
+let currentGalleryImages = [];
 
 function showLightboxImage(index) {
-  currentImageIndex = (index + portfolioImages.length) % portfolioImages.length;
-  const image = portfolioImages[currentImageIndex];
+  currentImageIndex = (index + currentGalleryImages.length) % currentGalleryImages.length;
+  const image = currentGalleryImages[currentImageIndex];
   lightboxImage.src = image.currentSrc || image.src;
   lightboxImage.alt = image.alt;
 }
@@ -138,7 +139,10 @@ function closeLightbox() {
 
 function openLightbox(image) {
   previouslyFocusedElement = document.activeElement;
-  showLightboxImage(portfolioImages.indexOf(image));
+  currentGalleryImages = Array.from(image.closest(".card").querySelectorAll("img"));
+  lightboxPrevious.hidden = currentGalleryImages.length < 2;
+  lightboxNext.hidden = currentGalleryImages.length < 2;
+  showLightboxImage(currentGalleryImages.indexOf(image));
   lightbox.hidden = false;
   document.body.style.overflow = "hidden";
   lightboxClose.focus();
