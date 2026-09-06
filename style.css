@@ -45,7 +45,10 @@ body.dark { background:#0b0c0f; color:#f0f0f0; }
 }
 #darkToggle:hover { background:#d4af37; color:#0d0f12; }
 
-.hamburger { display:none; font-size:2rem; cursor:pointer; color:#e6e6e6; }
+.hamburger {
+  display:none; width:auto; margin:0; padding:0; border:0; background:none;
+  font-size:2rem; cursor:pointer; color:#e6e6e6;
+}
 
 .mobile-menu {
   display:none; flex-direction:column; background:rgba(15,17,20,0.95);
