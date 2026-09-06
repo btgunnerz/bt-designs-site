@@ -163,6 +163,7 @@ footer {
   position:fixed; inset:0; z-index:10000; display:grid; place-items:center;
   padding:30px; background:rgba(0,0,0,0.88);
 }
+.lightbox[hidden] { display:none; }
 .lightbox-content { position:relative; max-width:95vw; max-height:90vh; }
 .lightbox img {
   display:block; max-width:95vw; max-height:90vh; width:auto; height:auto;
