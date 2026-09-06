@@ -71,8 +71,12 @@ body.dark { background:linear-gradient(135deg,#08090b 0%,#14171c 55%,#211b0d 100
    SECTION BACKGROUNDS
    ========================================================= */
 .hero {
-  background:linear-gradient(135deg,rgba(13,15,18,0.9),rgba(52,42,20,0.62)),url('images/top image.png') center/cover fixed;
+  background:linear-gradient(135deg,rgba(13,15,18,0.9),rgba(52,42,20,0.62)),url('images/top-image.png') center/cover fixed;
   padding:140px 60px 100px; max-width:900px;
+}
+.hero-logo-card {
+  background:linear-gradient(135deg,rgba(13,15,18,0.72),rgba(52,42,20,0.48)),url('images/btdesignsinc-arch-background.png') center/cover fixed;
+  display:flex; align-items:center; justify-content:center; min-height:360px;
 }
 .services {
   background:linear-gradient(135deg,rgba(13,15,18,0.9),rgba(34,44,48,0.66)),url('images/plans-1.png') center/cover fixed;
