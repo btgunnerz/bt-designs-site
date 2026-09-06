@@ -111,6 +111,51 @@ filterButtons.forEach(btn => {
 });
 
 /* =========================================================
+   PORTFOLIO IMAGE LIGHTBOX
+   ========================================================= */
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+let previouslyFocusedElement;
+
+function closeLightbox() {
+  lightbox.hidden = true;
+  document.body.style.overflow = "";
+  lightboxImage.src = "";
+  previouslyFocusedElement?.focus();
+}
+
+function openLightbox(image) {
+  previouslyFocusedElement = document.activeElement;
+  lightboxImage.src = image.currentSrc || image.src;
+  lightboxImage.alt = image.alt;
+  lightbox.hidden = false;
+  document.body.style.overflow = "hidden";
+  lightboxClose.focus();
+}
+
+portfolioGrid.querySelectorAll(".card img").forEach(image => {
+  image.addEventListener("click", () => openLightbox(image));
+  image.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openLightbox(image);
+    }
+  });
+  image.tabIndex = 0;
+  image.setAttribute("role", "button");
+  image.setAttribute("aria-label", `Enlarge ${image.alt}`);
+});
+
+lightboxClose.addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", event => {
+  if (event.target === lightbox) closeLightbox();
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && !lightbox.hidden) closeLightbox();
+});
+
+/* =========================================================
    FADE TRANSITION FOR DUAL-IMAGE CARDS
    ========================================================= */
 const fadeCards = document.querySelectorAll('.fade-card');
