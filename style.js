@@ -1,13 +1,68 @@
 /* =========================================================
-   NAVIGATION REVEAL ON SCROLL
+   NAVIGATION REVEAL ON SCROLL (FULLY ENHANCED)
    ========================================================= */
 let lastScroll = 0;
 const nav = document.getElementById("topRevealNav");
 
+// Add reveal shadow only when visible
+function updateNavShadow(visible) {
+  nav.style.boxShadow = visible
+    ? "0 0 25px rgba(255,255,255,0.15)"
+    : "none";
+}
+
 window.addEventListener("scroll", () => {
   const current = window.pageYOffset;
-  nav.style.top = current < lastScroll ? "0px" : "-90px";
+
+  // Always show nav near top
+  if (current < 50) {
+    nav.style.top = "0px";
+    nav.style.opacity = "1";
+    updateNavShadow(true);
+    lastScroll = current;
+    return;
+  }
+
+  // Reveal when scrolling up
+  if (current < lastScroll) {
+    nav.style.top = "0px";
+    nav.style.opacity = "1";
+    updateNavShadow(true);
+  }
+
+  // Hide when scrolling down
+  else {
+    nav.style.top = "-90px";
+    nav.style.opacity = "0";
+    updateNavShadow(false);
+  }
+
   lastScroll = current;
+});
+
+/* =========================================================
+   MOBILE MENU TOGGLE
+   ========================================================= */
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+
+hamburger.onclick = () => {
+  const isOpen = mobileMenu.style.display === "flex";
+  mobileMenu.style.display = isOpen ? "none" : "flex";
+  hamburger.setAttribute("aria-expanded", String(!isOpen));
+  hamburger.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
+
+  // Mobile reveal behavior: keep nav visible when menu is open
+  nav.style.top = isOpen ? "-90px" : "0px";
+  nav.style.opacity = isOpen ? "0" : "1";
+};
+
+mobileMenu.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.style.display = "none";
+    hamburger.setAttribute("aria-expanded", "false");
+    hamburger.setAttribute("aria-label", "Open navigation menu");
+  });
 });
 
 /* =========================================================
@@ -22,25 +77,16 @@ const observer = new IntersectionObserver(entries => {
 faders.forEach(el => observer.observe(el));
 
 /* =========================================================
-   MOBILE MENU TOGGLE
-   ========================================================= */
-const hamburger = document.getElementById("hamburger");
-const mobileMenu = document.getElementById("mobileMenu");
-
-hamburger.onclick = () => {
-  mobileMenu.style.display = mobileMenu.style.display === "flex" ? "none" : "flex";
-};
-
-/* =========================================================
    DARK MODE TOGGLE
    ========================================================= */
 const darkToggle = document.getElementById("darkToggle");
 darkToggle.onclick = () => {
-  document.body.classList.toggle("dark");
+  const isDark = document.body.classList.toggle("dark");
+  darkToggle.setAttribute("aria-pressed", String(isDark));
 };
 
 /* =========================================================
-   PORTFOLIO FILTERING
+   PORTFOLIO FILTERING (PATCHED + SMOOTH FADE)
    ========================================================= */
 const filterButtons = document.querySelectorAll(".filter-btn");
 const portfolioGrid = document.getElementById("portfolioGrid");
@@ -48,6 +94,7 @@ const cards = portfolioGrid.querySelectorAll(".card");
 
 filterButtons.forEach(btn => {
   btn.addEventListener("click", () => {
+
     filterButtons.forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
 
@@ -55,7 +102,10 @@ filterButtons.forEach(btn => {
 
     cards.forEach(card => {
       const category = card.dataset.category;
-      card.style.display = (filter === "all" || category === filter) ? "block" : "none";
+
+      const isVisible = filter === "all" || category === filter;
+      card.style.display = isVisible ? "" : "none";
+      card.style.opacity = isVisible ? "1" : "0";
     });
   });
 });
@@ -83,6 +133,13 @@ const dropzone = document.getElementById("dropzone");
 const fileInput = document.getElementById("fileInput");
 
 dropzone.addEventListener("click", () => fileInput.click());
+
+dropzone.addEventListener("keydown", e => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    fileInput.click();
+  }
+});
 
 dropzone.addEventListener("dragover", e => {
   e.preventDefault();
