@@ -72,11 +72,7 @@ body.dark { background:linear-gradient(135deg,#08090b 0%,#14171c 55%,#211b0d 100
    ========================================================= */
 .hero {
   background:linear-gradient(135deg,rgba(13,15,18,0.9),rgba(52,42,20,0.62)),url('images/top-image.png') center/cover fixed;
-  padding:140px 60px 100px; max-width:900px;
-}
-.hero-logo-card {
-  background:linear-gradient(135deg,rgba(13,15,18,0.72),rgba(52,42,20,0.48)),url('images/btdesignsinc-arch-background-1.png') center/cover fixed;
-  display:flex; align-items:center; justify-content:center; min-height:360px;
+  padding:90px 40px 70px; max-width:900px;
 }
 .services {
   background:linear-gradient(135deg,rgba(13,15,18,0.9),rgba(34,44,48,0.66)),url('images/plans-1.png') center/cover fixed;
@@ -99,8 +95,12 @@ footer {
 /* =========================================================
    HERO
    ========================================================= */
-  .hero-logo{ width: 280px; max-width:100%; height:auto; margin-bottom: 25px; display: block; margin-left: auto; margin-right: auto; filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+  .hero-logo{ width: 280px; max-width:100%; height:auto; margin-bottom: 25px; display: block; margin-left: auto; margin-right: auto; filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25)); animation:hero-logo-fade-in 1.2s ease-out both;
     }
+@keyframes hero-logo-fade-in {
+  from { opacity:0; transform:translateY(12px) scale(0.96); }
+  to { opacity:1; transform:translateY(0) scale(1); }
+}
    .hero h1 {
   font-size:3rem; font-family:"Berlin Sans FB",sans-serif; margin-bottom:20px;
 }
