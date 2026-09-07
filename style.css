@@ -101,7 +101,7 @@ footer {
   animation:intro-splash-out 1s ease-in 1.2s forwards;
 }
 .intro-splash img {
-  width:min(420px,75vw); height:auto;
+  width:100vw; height:50vw; object-fit:contain;
   filter:drop-shadow(0 0 18px rgba(255,255,255,0.3));
 }
 @keyframes intro-splash-out {
