@@ -115,7 +115,7 @@ footer {
   .intro-splash { animation:none; opacity:0; visibility:hidden; pointer-events:none; }
 }
    .hero h1 {
-  font-size:3rem; font-family:"Berlin Sans FB",sans-serif; margin-bottom:20px;
+  font-size:3rem; font-family:Arial,sans-serif; margin-bottom:20px;
 }
 .hero p { font-size:1.2rem; line-height:1.6; }
 
