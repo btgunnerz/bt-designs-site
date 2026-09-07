@@ -84,7 +84,10 @@ body.dark { background:linear-gradient(135deg,#08090b 0%,#14171c 55%,#211b0d 100
 }
 .contact {
   background:linear-gradient(135deg,rgba(13,15,18,0.9),rgba(34,44,48,0.66)),url('images/room-1.png') center/cover fixed;
-  padding:60px; max-width:700px; margin:auto;
+  padding:60px;
+}
+.contact form {
+  max-width:700px; margin:0 auto;
 }
 footer {
   background:rgba(11,12,15,0.85); margin-top:60px; padding:40px;
