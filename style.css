@@ -33,7 +33,7 @@ body.dark { background:linear-gradient(135deg,#08090b 0%,#14171c 55%,#211b0d 100
   padding:0 clamp(16px, 4vw, 40px); gap:16px;
   transition:top 0.35s ease; z-index:9999;
 }
-.nav-logo img { height:55px; filter:drop-shadow(0 0 4px rgba(255,255,255,0.3)); }
+.nav-logo img { height:90px; filter:drop-shadow(0 0 4px rgba(255,255,255,0.3)); }
 .nav-content { display:flex; gap:25px; }
 .nav-content a {
   color:#e6e6e6; text-decoration:none;
